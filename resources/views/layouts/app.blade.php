@@ -52,7 +52,29 @@
                         <!--begin::Menu-->
                         <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true" data-kt-menu-expand="false">
                             <div class="menu-item">
-                                <a class="menu-link" href="/metronic8/demo1/../demo1/apps/calendar.html">
+                                <a class="menu-link @if(request()->route()->named('dashboard')) active @endif" href="{{ route('dashboard') }}">
+                                    <span class="menu-icon">
+                                        <!--begin::Svg Icon | path: assets/media/icons/duotune/communication/com014.svg-->
+                                            <span class="svg-icon svg-icon-muted svg-icon-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+													<rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor"></rect>
+													<rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor"></rect>
+													<rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor"></rect>
+													<rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor"></rect>
+												</svg>
+                                            </span>
+                                        <!--end::Svg Icon-->
+                                    </span>
+                                    <span class="menu-title">Dashboard</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-content">
+                                    <div class="separator mx-1 my-4"></div>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link @if(request()->route()->named('teachers')) active @endif" href="{{ route('teachers') }}">
                                     <span class="menu-icon">
                                         <!--begin::Svg Icon | path: assets/media/icons/duotune/communication/com014.svg-->
                                             <span class="svg-icon svg-icon-muted svg-icon-2">
@@ -65,7 +87,24 @@
                                             </span>
                                         <!--end::Svg Icon-->
                                     </span>
-                                    <span class="menu-title">Users</span>
+                                    <span class="menu-title">Teachers</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-link @if(request()->route()->named('students')) active @endif" href="{{ route('students') }}">
+                                    <span class="menu-icon">
+                                        <!--begin::Svg Icon | path: assets/media/icons/duotune/communication/com014.svg-->
+                                            <span class="svg-icon svg-icon-muted svg-icon-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M16.0173 9H15.3945C14.2833 9 13.263 9.61425 12.7431 10.5963L12.154 11.7091C12.0645 11.8781 12.1072 12.0868 12.2559 12.2071L12.6402 12.5183C13.2631 13.0225 13.7556 13.6691 14.0764 14.4035L14.2321 14.7601C14.2957 14.9058 14.4396 15 14.5987 15H18.6747C19.7297 15 20.4057 13.8774 19.912 12.945L18.6686 10.5963C18.1487 9.61425 17.1285 9 16.0173 9Z" fill="currentColor"/>
+                                                    <rect opacity="0.3" x="14" y="4" width="4" height="4" rx="2" fill="currentColor"/>
+                                                    <path d="M4.65486 14.8559C5.40389 13.1224 7.11161 12 9 12C10.8884 12 12.5961 13.1224 13.3451 14.8559L14.793 18.2067C15.3636 19.5271 14.3955 21 12.9571 21H5.04292C3.60453 21 2.63644 19.5271 3.20698 18.2067L4.65486 14.8559Z" fill="currentColor"/>
+                                                    <rect opacity="0.3" x="6" y="5" width="6" height="6" rx="3" fill="currentColor"/>
+                                                </svg>
+                                            </span>
+                                        <!--end::Svg Icon-->
+                                    </span>
+                                    <span class="menu-title">Students</span>
                                 </a>
                             </div>
                         </div>
@@ -127,13 +166,14 @@
                     <div class="post d-flex flex-column-fluid" id="kt_post">
                         <!--begin::Container-->
                         <div id="kt_content_container" class="container-xxl">
-
+                            @yield('main-content')
                         </div>
                         <!--end::Container-->
                     </div>
                     <!--end::Post-->
                 </div>
                 <!--end::Content-->
+
                 <!--begin::Footer-->
                 <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
                     <!--begin::Container-->
@@ -141,7 +181,7 @@
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted fw-bold me-1">2022©</span>
-                            <a href="{{ route('main') }}" target="_blank" class="text-gray-800 text-hover-primary">SchoolADP</a>
+                            <a href="{{ route('dashboard') }}" target="_blank" class="text-gray-800 text-hover-primary">SchoolADP</a>
                         </div>
                         <!--end::Copyright-->
                     </div>

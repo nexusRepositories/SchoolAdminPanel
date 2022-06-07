@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\AdminPanelController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,12 @@ use App\Http\Controllers\AdminPanelController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+// Dashboard
+Route::redirect('/', '/dashboard');
+Route::get('/dashboard', [MainController::class, 'index'])->name('dashboard');
 
-Route::get('/', [MainController::class, 'index'])->name('main');
+// Teachers
+Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers');
+
+// Students
+Route::get('/students', [StudentController::class, 'index'])->name('students');
