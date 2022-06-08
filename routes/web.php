@@ -16,12 +16,23 @@ use App\Http\Controllers\TeacherController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 // Dashboard
-Route::redirect('/', '/dashboard');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Route::redirect('/', '/dashboard');
+// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // Teachers
 Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers');
 
 // Students
 Route::get('/students', [StudentController::class, 'index'])->name('students');
+
+
+require __DIR__.'/auth.php';
