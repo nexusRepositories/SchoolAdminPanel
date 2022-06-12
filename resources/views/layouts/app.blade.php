@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <title>School Admin Panel</title>
     <meta charset="utf-8">
@@ -109,7 +109,7 @@
             </div>
 
             {{-- Main --}}
-            <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+            <div class="wrapper d-flex flex-column flex-row-fluid pt-20" id="kt_wrapper">
 
                 {{-- Header --}}
                 @include('partials.header')
@@ -131,5 +131,6 @@
 
     <script src="/js/plugins.bundle.js"></script>
     <script src="/js/scripts.bundle.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

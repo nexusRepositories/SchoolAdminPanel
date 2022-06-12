@@ -845,26 +845,19 @@
                                 <!--end::Username-->
                             </div>
                         </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu separator-->
                         <div class="separator my-2"></div>
-                        <!--end::Menu separator-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item px-5">
-                            <a href="/metronic8/demo1/../demo1/account/overview.html" class="menu-link px-5">My Profile</a>
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu separator-->
-                        <div class="separator my-2"></div>
-                        <!--end::Menu separator-->
-
                         @auth
-                        <!--begin::Menu item-->
+                            <div class="menu-item px-5">
+                                <a href="{{ route('profile') }}" class="menu-link px-5">My Profile</a>
+                            </div>
+                            <div class="menu-item px-5">
+                                <a href="{{ route('settings') }}" class="menu-link px-5">Account Settings</a>
+                            </div>
+                            <div class="separator my-2"></div>
                             <form class="menu-item px-5" method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit" class="menu-white-800 menu-link px-5 btn-block border-0 w-100 btn btn-outline-danger">Sign Out</button>
                             </form>
-                            <!--end::Menu item-->
                         @else
                             <div class="menu-item px-5">
                                 <a href="{{ route('login') }}" class="menu-link px-5">Sign In</a>

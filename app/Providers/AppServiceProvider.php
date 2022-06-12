@@ -25,7 +25,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer([
-            'partials.header'
+            'partials.header',
+            'pages.settings'
         ], function($view) {
             if(Auth::user()) {
                 $user = Auth::user();
