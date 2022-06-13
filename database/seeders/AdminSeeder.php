@@ -20,6 +20,8 @@ class AdminSeeder extends Seeder
 
         User::updateOrCreate([
             'name' => 'admin',
+            'birthday' => '01.01.2000',
+            'url' => 'assets/admin_logo.png',
             'email' => 'admin@admin.test',
             'email_verified_at' => now(),
             'password' => Hash::make('111'),
