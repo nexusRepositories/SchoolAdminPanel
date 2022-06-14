@@ -19,7 +19,8 @@ class AdminSeeder extends Seeder
         if(User::exists()) return false;
 
         User::updateOrCreate([
-            'name' => 'admin',
+            'first_name' => 'admin',
+            'last_name' => 'adminovich',
             'birthday' => '01.01.2000',
             'url' => 'assets/admin_logo.png',
             'email' => 'admin@admin.test',
