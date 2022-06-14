@@ -24,12 +24,16 @@ Route::middleware([auth::class])->group(function()
     // Dashboard
     Route::redirect('/', '/dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    
-    // User
-    Route::get('/profile', [SettingsController::class, 'profile'])->name('profile');
-    Route::get('/settings', [SettingsController::class, 'settings'])->name('settings');
-    Route::post('profile/change-email', [SettingsController::class, 'changeEmail'])->name('change_email');
-    Route::post('profile/change-password', [SettingsController::class, 'changePassword'])->name('change_password');
+
+    // Settings
+    Route::controller(SettingsController::class)->group(function()
+    {
+        Route::get('/profile', 'profile')->name('profile');
+        Route::get('/settings', 'settings')->name('settings');
+        Route::post('profile/change-email', 'changeEmail')->name('change_email');
+        Route::post('profile/change-password', 'changePassword')->name('change_password');
+    });
+
 
     // Head teacher
     Route::get('/school-subjects', [SchoolSubjectController::class, 'index'])->name('school_subjects');
