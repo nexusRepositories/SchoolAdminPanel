@@ -5,7 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SchoolSubjectController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,17 +18,18 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Dashboard
-Route::redirect('/', '/dashboard');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::middleware([auth::class])->group(function()
 {
+    // Dashboard
+    Route::redirect('/', '/dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
     // User
-    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
-    Route::get('/settings', [UserController::class, 'settings'])->name('settings');
-    Route::post('profile/change-email', [UserController::class, 'changeEmail'])->name('change_email');
-    Route::post('profile/change-password', [UserController::class, 'changePassword'])->name('change_password');
+    Route::get('/profile', [SettingsController::class, 'profile'])->name('profile');
+    Route::get('/settings', [SettingsController::class, 'settings'])->name('settings');
+    Route::post('profile/change-email', [SettingsController::class, 'changeEmail'])->name('change_email');
+    Route::post('profile/change-password', [SettingsController::class, 'changePassword'])->name('change_password');
 
     // Head teacher
     Route::get('/school-subjects', [SchoolSubjectController::class, 'index'])->name('school_subjects');

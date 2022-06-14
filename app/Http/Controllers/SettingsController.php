@@ -9,7 +9,7 @@ use App\Http\Requests\ChangeEmailRequest;
 use App\Http\Requests\ChangePasswordRequest;
 use Illuminate\Support\Facades\Validator;
 
-class UserController extends Controller
+class SettingsController extends Controller
 {
     public function profile()
     {
