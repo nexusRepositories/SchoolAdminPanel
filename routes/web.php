@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SchoolSubjectController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
@@ -32,7 +33,12 @@ Route::middleware([auth::class])->group(function()
     Route::get('/settings', [UserController::class, 'settings'])->name('settings');
     Route::post('profile/change-email', [UserController::class, 'changeEmail'])->name('change_email');
     Route::post('profile/change-password', [UserController::class, 'changePassword'])->name('change_password');
+
+    // Head teacher
+    Route::get('/school-subjects', [SchoolSubjectController::class, 'index'])->name('school_subjects');
+
 });
+
 
 // Teachers
 Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers');
