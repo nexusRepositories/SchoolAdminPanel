@@ -18,10 +18,6 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Route::get('/dashboard', function () {
-//     return view('pages.dashboard');
-// })->middleware(['auth'])->name('dashboard');
-
 // Dashboard
 Route::redirect('/', '/dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
