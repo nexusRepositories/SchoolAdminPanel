@@ -19,10 +19,11 @@ class AdminSeeder extends Seeder
         if(User::exists()) return false;
 
         User::updateOrCreate([
-            'first_name' => 'admin',
-            'last_name' => 'adminovich',
-            'birthday' => '01.01.2000',
             'url' => 'assets/admin_logo.png',
+            'first_name' => 'Admin',
+            'last_name' => 'Adminovich',
+            'birthday' => '01.01.2000',
+            'phone' => '+990001112233',
             'email' => 'admin@admin.test',
             'email_verified_at' => now(),
             'password' => Hash::make('111'),

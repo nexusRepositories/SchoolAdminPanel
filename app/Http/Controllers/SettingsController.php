@@ -2,23 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ChangeEmailRequest;
 use App\Http\Requests\ChangePasswordRequest;
-use Illuminate\Support\Facades\Validator;
 
 class SettingsController extends Controller
 {
-    public function profile()
+    public function settingsPage()
     {
-        return view('pages.profile');
-    }
+        $user = auth()->user();
 
-    public function settings()
-    {
-        return view('pages.settings');
+        return view('pages.settings', compact('user'));
     }
 
     public function changeEmail(ChangeEmailRequest $request)
@@ -29,7 +23,7 @@ class SettingsController extends Controller
             'email' => $request->emailaddress,
         ]);
 
-        return redirect()->route('settings')->with('status', 'Your email successfully updated');
+        return redirect()->route('settings_page')->with('status', 'Your email successfully updated');
     }
 
     public function changePassword(ChangePasswordRequest $request)
@@ -40,7 +34,6 @@ class SettingsController extends Controller
             'password' => Hash::make($request->newpassword),
         ]);
 
-        return redirect()->route('settings')->with('status', 'Your password successfully updated');
-
+        return redirect()->route('settings_page')->with('status', 'Your password successfully updated');
     }
 }
