@@ -165,5 +165,6 @@
     <script src="/js/plugins.bundle.js"></script>
     <script src="/js/scripts.bundle.js"></script>
     <script src="/js/app.js"></script>
+    @yield('jsIncludes')
 </body>
 </html>

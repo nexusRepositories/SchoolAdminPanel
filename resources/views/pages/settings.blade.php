@@ -150,3 +150,7 @@
         </div>
     </div>
 @endsection
+
+@section('jsIncludes')
+    <script src="{{ mix('js/settings.js')}} "></script>
+@endsection
