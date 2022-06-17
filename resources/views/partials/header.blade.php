@@ -21,7 +21,7 @@
             <div class="d-flex align-items-stretch flex-shrink-0">
                 {{-- Search --}}
                 <div class="d-flex align-items-stretch ms-1 ms-lg-3">
-                    <div id="kt_header_search" class="header-search d-flex align-items-stretch" data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter" data-kt-search-layout="menu" data-kt-menu-trigger="auto" data-kt-menu-overflow="false" data-kt-menu-permanent="true" data-kt-menu-placement="bottom-end" data-kt-search="true">
+                    <div class="header-search d-flex align-items-stretch">
                         <div class="d-flex align-items-center" data-kt-search-element="toggle" id="kt_header_search_toggle">
                             <div class="btn btn-icon btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px">
                                 <span class="svg-icon svg-icon-1">
