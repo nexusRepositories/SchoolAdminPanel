@@ -38,6 +38,7 @@ class EditProfileRequest extends FormRequest
     {
         return [
             'url' => 'mimes:png,jpg,jpeg|max:3072',
+            'userpic_delete_flag' => 'boolean',
             'first_name' => 'required|string|min:1|max:80',
             'last_name' => 'required|string|min:1|max:80',
             'phone' => 'required|max:13',
