@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('url')->nullable();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('birthday');
-            $table->string('phone');
+            $table->string('birthday')->nullable();
+            $table->string('phone')->nullable();
             $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->string('email')->unique();

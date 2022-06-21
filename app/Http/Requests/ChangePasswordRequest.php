@@ -36,7 +36,7 @@ class ChangePasswordRequest extends FormRequest
     {
         return [
             'currentpassword' => ['required', 'current_password:web'],
-            'newpassword' => ['required', 'string', 'confirmed', 'min:8', 'max:255'],
+            'newpassword' => ['required', 'string', 'confirmed', 'min:3', 'max:255'],
             'newpassword_confirmation' => ['required'],
         ];
     }

@@ -29,6 +29,7 @@
                     <div class="col-xl-3">
                         <div class="fs-6 fw-bold mx-0 required">Photo</div>
                         <div class="form-text mt-0">Allowed file types: png, jpg, jpeg.</div>
+                        <div class="form-text mt-0">Max size: 3Mb</div>
                     </div>
                     <div class="col-lg-8">
                         <div class="image-input image-input-outline" data-kt-image-input="true">
