@@ -118,6 +118,7 @@
                                             </span>
                                         </span>
                                     @enderror
+                                    {{-- EYE --}}
                                     <span class="btn btn-sm btn-icon position-absolute" data-kt-password-meter-control="visibility" style="top: 6px; right: 10px">
                                         <i class="fs-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
