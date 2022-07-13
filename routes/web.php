@@ -20,7 +20,7 @@ use App\Http\Controllers\SettingsController;
 */
 
 
-Route::middleware([auth::class])->group(function()
+Route::middleware([auth::class, 'verified'])->group(function()
 {
     // Dashboard
     Route::redirect('/', '/dashboard');
