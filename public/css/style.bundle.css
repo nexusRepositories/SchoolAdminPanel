@@ -1,5 +1,6 @@
 @charset "UTF-8";
 :root {
+  --main-blue: #2B3A52;
   --bs-blue: #009ef6;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -10504,6 +10505,10 @@ textarea.form-control-lg {
 .text-danger {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-main-blue {
+  color: var(--main-blue);
 }
 
 .text-dark {
