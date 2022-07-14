@@ -4,9 +4,11 @@ export const removeImage = (function() {
     const userpicDeleteFlag = document.querySelector('[data-userpic="delete-flag"]')
     const userpicPreview = document.querySelector('[data-userpic="preview"]');
     const userpicInput = document.querySelector('[data-userpic="input"]');
-    const userpicLink = document.querySelector('[data-userpiclink]').dataset.userpiclink;
+    const userpicLinkElem = document.querySelector('[data-userpiclink]');
 
-    if(!userpicClear || !userpicDeleteFlag || !userpicPreview || !userpicInput || !userpicLink) return;
+    if(!userpicClear || !userpicDeleteFlag || !userpicPreview || !userpicInput || !userpicLinkElem) return;
+
+    const userpicLink = userpicLinkElem.dataset.userpiclink;
 
     userpicInput.addEventListener('change', (e)=> {
         userpicDeleteFlag.value = '0';

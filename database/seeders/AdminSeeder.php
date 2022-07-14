@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
         if(User::exists()) return false;
 
         User::updateOrCreate([
-            'url' => 'assets/admin_logo.png',
+            'url' => 'assets/admin-logo.png',
             'first_name' => 'Admin',
             'last_name' => 'Adminovich',
             'birthday' => '01.01.2000',
