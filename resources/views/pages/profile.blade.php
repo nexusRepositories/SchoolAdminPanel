@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', __('My Profile'))
+
 @section('main-content')
     <div id="kt_content_container" class="container-xxl">
         <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">

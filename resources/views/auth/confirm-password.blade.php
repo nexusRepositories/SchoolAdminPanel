@@ -1,5 +1,7 @@
 @extends('layouts.guest')
 
+@section('title', __('Confirm password'))
+
 @section('main-content')
     <div class="d-flex flex-column flex-root">
         <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url(/metronic8/demo1/assets/media/illustrations/sketchy-1/14.png">

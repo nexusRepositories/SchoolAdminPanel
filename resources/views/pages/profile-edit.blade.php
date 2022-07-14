@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', __('Profile Edit'))
+
 @section('main-content')
     {{-- SESSION MESSAGE --}}
     @if (session('status'))

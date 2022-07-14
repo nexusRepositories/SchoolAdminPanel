@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', __('Settings'))
+
 @section('main-content')
     @if (session('status'))
         <div class="alert alert-success px-10 d-flex justify-content-between" role="alert">
