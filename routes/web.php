@@ -23,6 +23,7 @@ use App\Http\Controllers\SettingsController;
 Route::middleware([auth::class, 'verified'])->group(function()
 {
     // Dashboard
+    Route::get('/')->name('home');
     Route::redirect('/', '/dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
