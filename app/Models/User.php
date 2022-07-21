@@ -4,8 +4,6 @@ namespace App\Models;
 
 use App\Traits\HasRolesAndPermissions;
 use Laravel\Sanctum\HasApiTokens;
-use Database\Factories\StudentFactory;
-use Database\Factories\TeacherFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -50,23 +48,5 @@ class User extends Authenticatable implements MustVerifyEmail
     public function image()
     {
         return $this->hasMany(Image::class);
-    }
-
-    /**
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    protected static function TeacherFactory()
-    {
-        return TeacherFactory::new();
-    }
-
-    /**
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    protected static function StudentFactory()
-    {
-        return StudentFactory::new();
     }
 }
