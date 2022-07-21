@@ -25,7 +25,6 @@ class UserSeeder extends Seeder
         // Admin
         $roleAdmin = Role::where('slug', 'admin')->first(); 
         User::updateOrCreate([
-            'url' => 'assets/admin-logo.png',
             'first_name' => 'Admin',
             'last_name' => 'Adminovich',
             'birthday' => '01.01.2000',

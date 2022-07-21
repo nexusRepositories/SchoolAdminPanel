@@ -50,14 +50,22 @@
                 {{-- User --}}
                 <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                     <div class="cursor-pointer" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" style="width: 32px; height: 32px; border-radius: 30%; display: flex; flex-direction: row; justify-content: center; align-items: center; border: 1px solid lightgrey; object-fit: contain; overflow: hidden">
-                        <img src="{{ $user->url ? asset('storage/' . $user->url) : asset('assets/user-logo.svg') }}" alt="userpic" style="display: block; width: 100%; height: auto; max-height: 100%; max-width: 28px;">
+                        @if($user->role() == 'admin')
+                            <img src="{{ $user->url ? asset('storage/' . $user->url) : asset('assets/admin-logo.png') }}" alt="userpic" style="display: block; width: 100%; height: auto; max-height: 100%; max-width: 48px;">
+                        @else
+                            <img src="{{ $user->url ? asset('storage/' . $user->url) : asset('assets/user-logo.svg') }}" alt="userpic" style="display: block; width: 100%; height: auto; max-height: 100%; max-width: 48px;">
+                        @endif
                     </div>
                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px" data-kt-menu="true" style="">
                         <div class="menu-item px-3">
                             <div class="menu-content d-flex align-items-center px-3">
                                 @auth
                                     <div class="symbol symbol-50px me-5" style="width: 50px; height: 50px; border-radius: 15%; display: flex; flex-direction: row; justify-content: center; align-items: center; border: 1px solid lightgrey; object-fit: contain; overflow: hidden">
-                                        <img src="{{ $user->url ? asset('storage/' . $user->url) : asset('assets/user-logo.svg') }}" alt="userpic" style="display: block; width: 100%; height: auto; max-height: 100%; max-width: 48px;">
+                                        @if($user->role() == 'admin')
+                                            <img src="{{ $user->url ? asset('storage/' . $user->url) : asset('assets/admin-logo.png') }}" alt="userpic" style="display: block; width: 100%; height: auto; max-height: 100%; max-width: 48px;">
+                                        @else
+                                            <img src="{{ $user->url ? asset('storage/' . $user->url) : asset('assets/user-logo.svg') }}" alt="userpic" style="display: block; width: 100%; height: auto; max-height: 100%; max-width: 48px;">
+                                        @endif
                                     </div>
                                     <div class="d-flex flex-column">
                                         <div class="fw-bolder d-flex align-items-center fs-5">

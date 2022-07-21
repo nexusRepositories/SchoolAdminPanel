@@ -36,7 +36,11 @@
                     <div class="col-lg-8">
 
                         <div class="image-input image-input-outline" data-kt-image-input="true">
-                            <div data-userpicLink="{{ asset('assets/user-logo.svg') }}" data-userpic="preview" class="image-input-wrapper w-200px h-200px @error('url') border border-danger @enderror" style="background-position: center; background-size: 95%;  background-image: url({{$user->url ? asset('storage/' . $user->url) : asset('assets/user-logo.svg') }})"></div>
+                            @if($user->role() == 'admin')
+                                <div data-userpicLink="{{ asset('assets/admin-logo.png') }}" data-userpic="preview" class="image-input-wrapper w-200px h-200px @error('url') border border-danger @enderror" style="background-position: center; background-size: 95%;  background-image: url({{$user->url ? asset('storage/' . $user->url) : asset('assets/admin-logo.png') }})"></div>
+                            @else
+                                <div data-userpicLink="{{ asset('assets/user-logo.svg') }}" data-userpic="preview" class="image-input-wrapper w-200px h-200px @error('url') border border-danger @enderror" style="background-position: center; background-size: 95%;  background-image: url({{$user->url ? asset('storage/' . $user->url) : asset('assets/user-logo.svg') }})"></div>
+                            @endif
                             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="Change avatar">
                                 <i class="fs-7">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">

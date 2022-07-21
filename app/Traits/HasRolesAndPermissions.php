@@ -114,6 +114,6 @@ trait HasRolesAndPermissions
 
     public function role()
     {
-        return $this->roles->first()->name;
+        return $this->roles->first()->slug;
     }
 }
