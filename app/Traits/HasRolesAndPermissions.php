@@ -20,7 +20,7 @@ trait HasRolesAndPermissions
      */
     public function permissions()
     {
-        return $this->belomgsToMany(Permission::class, 'users_permissions');
+        return $this->belongsToMany(Permission::class, 'users_permissions');
     }
 
     /**
@@ -110,5 +110,10 @@ trait HasRolesAndPermissions
     {
         $this->permissions()->detach();
         return $this->givePermissionsTo($permissions);
+    }
+
+    public function role()
+    {
+        return $this->roles->first()->name;
     }
 }
