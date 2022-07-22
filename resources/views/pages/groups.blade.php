@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', __('Teachers'))
+@section('title', __('Groups'))
 
 @section('main-content')
     <div class="card mb-5 mb-xl-8">
         <!--begin::Header-->
         <div class="card-header border-0 pt-5">
             <h3 class="card-title align-items-start flex-column">
-                <span class="card-label fw-bold fs-3 mb-1">Teachers</span>
-                <span class="text-muted mt-1 fw-semibold fs-7">{{ $teachers->count() }} Teachers</span>
+                <span class="card-label fw-bold fs-3 mb-1">Groups</span>
+                <span class="text-muted mt-1 fw-semibold fs-7">{{ $groups->count() }} Groups</span>
             </h3>
             <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" data-kt-initialized="1">
                 <a href="#" class="btn btn-sm btn-light btn-active-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
@@ -19,7 +19,7 @@
                         <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor"></rect>
                     </svg>
                 </span>
-                <!--end::Svg Icon-->New Teacher</a>
+                <!--end::Svg Icon-->New Group</a>
             </div>
         </div>
         <!--end::Header-->
@@ -32,13 +32,8 @@
                     <!--begin::Table head-->
                     <thead>
                         <tr class="fw-bold text-muted">
-                            <th class="w-25px">
-                                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="1" data-kt-check="true" data-kt-check-target=".widget-9-check">
-                                </div>
-                            </th>
-                            <th class="min-w-200px">Authors</th>
-                            <th class="min-w-150px">Company</th>
+                            <th class="min-w-200px">Group</th>
+                            <th class="min-w-150px">Teacher </th>
                             <th class="min-w-150px">Progress</th>
                             <th class="min-w-100px text-end">Actions</th>
                         </tr>
@@ -46,21 +41,14 @@
                     <!--end::Table head-->
                     <!--begin::Table body-->
                     <tbody>
-                        @foreach ($teachers as $teacher)
+                        {{-- @dd($groups) --}}
+                        @foreach ($groups as $group)
                             <tr>
                                 <td>
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input widget-9-check" type="checkbox" value="1">
-                                    </div>
-                                </td>
-                                <td>
                                     <div class="d-flex align-items-center">
-                                        <div class="symbol symbol-45px me-5">
-                                            <img src="{{ $teacher->url ? asset('storage/' . $teacher->url) : asset('assets/user-logo.svg') }}" alt="">
-                                        </div>
                                         <div class="d-flex justify-content-start flex-column">
-                                            <a href="#" class="text-dark fw-bold text-hover-primary fs-6">{{ $teacher->fullName() }}</a>
-                                            <span class="text-muted fw-semibold text-muted d-block fs-7">Class: 1A</span>
+                                            <a href="#" class="text-dark fw-bold text-hover-primary fs-6">{{ $group->name }}</a>
+                                            <span class="text-muted fw-semibold text-muted d-block fs-7">text</span>
                                         </div>
                                     </div>
                                 </td>
@@ -100,17 +88,18 @@
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
-                                        <a href="#" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
-                                            <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
-                                            <span class="svg-icon svg-icon-3 svg-icon">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"></path>
-                                                    <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"></path>
-                                                    <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"></path>
-                                                </svg>
-                                            </span>
-                                            <!--end::Svg Icon-->
-                                        </a>
+                                        <form class="doctors__table-td_button-delete" onsubmit="if(confirm(`Do you really want to delete group?`)){return true} else {return false}" method="post" action="{{ route('group.delete', $group) }}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
+                                                <span class="svg-icon svg-icon-3 svg-icon">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"></path>
+                                                        <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"></path>
+                                                        <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

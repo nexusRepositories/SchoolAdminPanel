@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SchoolSubjectController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\SchoolSubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,11 +49,24 @@ Route::middleware([auth::class, 'verified'])->group(function()
     // Head teacher
     Route::get('/school-subjects', [SchoolSubjectController::class, 'index'])->name('school_subjects');
 
+    // Groups
+    Route::controller(GroupController::class)->group(function()
+    {
+        Route::get('/groups', 'index')->name('groups.index');
+        Route::post('/groups/delete/{group}', 'groupDelete')->name('group.delete');
+    });
+
     // Teachers
     Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers');
     
     // Students
     Route::get('/students', [StudentController::class, 'index'])->name('students');
+
+    // Roles
+    Route::resource('roles', RoleController::class);
+
+    // Permissions
+    Route::resource('permissions', PermissionController::class);
 });
 
 require __DIR__.'/auth.php';

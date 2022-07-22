@@ -31,8 +31,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@adp.test',
             'email_verified_at' => now(),
             'password' => Hash::make('111'),
-            ])->roles()->attach($roleAdmin);
-            
+        ])->roles()->attach($roleAdmin);
             
         // Head Teacher
         $roleHeadTeacher = Role::where('slug', 'head-teacher')->first();
